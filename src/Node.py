@@ -7,6 +7,11 @@ class Node:
     def is_leaf(self):
         return self.left is None and self.right is None
     
+    def print(self):
+        if self.is_leaf():
+            return str(self.value)
+        return f'({self.left.print()} {self.value} {self.right.print()})'
+    
     def sum(x, y):
         return x + y
 
