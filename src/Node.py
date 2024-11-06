@@ -7,10 +7,27 @@ class Node:
     def is_leaf(self):
         return self.left is None and self.right is None
     
-    def print(self):
+    def get_all_nodes(self):
+        nodes = [self]
+        if self.left:
+            nodes.extend(self.left.get_all_nodes())
+        if self.right:
+            nodes.extend(self.right.get_all_nodes())
+        return nodes
+    
+    def view(self):
         if self.is_leaf():
             return str(self.value)
-        return f'({self.left.print()} {self.value} {self.right.print()})'
+        else:
+            left_str = self.left.view()
+            right_str = self.right.view()
+            return f'({left_str} {self.value} {right_str})'
+        
+    def depth(self):
+        if self.is_leaf():
+            return 1
+        else:
+            return 1 + max(self.left.depth(), self.right.depth())
     
     def sum(x, y):
         return x + y
