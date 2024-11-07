@@ -95,10 +95,11 @@ class Node:
             return f'({left_str} {self.value} {right_str})'
         
     def depth(self):
-        if self.is_leaf():
-            return 1
-        else:
-            return 1 + max(self.left.depth(), self.right.depth())
+        if self is None:
+            return 0
+        left_depth = self.left.get_tree_depth()
+        right_depth = self.right.get_tree_depth()
+        return max(left_depth, right_depth) + 1
     
     def sum(x, y):
         return x + y
