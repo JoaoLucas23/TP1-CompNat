@@ -1,7 +1,6 @@
 import plotly.graph_objects as go
-
+import numpy as np
 from .plot_tree import create_igraph_from_tree, make_annotations
-
 
 class Node:
     def __init__(self, value, left=None, right=None):
@@ -85,14 +84,17 @@ class Node:
                           )
         fig.show()
 
-
     def view_expression(self):
         if self.is_leaf():
-            return str(self.value)
+            if isinstance(self.value, str):
+                return f"{self.value}"
+            else:
+                return str(self.value)
         else:
-            left_str = self.left.view_expression()
-            right_str = self.right.view_expression()
-            return f'({left_str} {self.value} {right_str})'
+            left_expr = self.left.view_expression()
+            right_expr = self.right.view_expression()
+            operator = self.value
+            return f"operators['{operator}']({left_expr}, {right_expr})"
         
     def depth(self):
         if self is None:
@@ -100,27 +102,14 @@ class Node:
         left_depth = self.left.get_tree_depth()
         right_depth = self.right.get_tree_depth()
         return max(left_depth, right_depth) + 1
-    
-    def sum(x, y):
-        return x + y
-
-    def sub(x, y):
-        return x - y
-    
-    def mul(x, y):
-        return x * y
 
     def protected_division(x, y):
-        if y == 0:
-            return 0
-        return x / y
+        return np.divide(x, y, out=np.zeros_like(x), where=y!=0)
 
     operators = {
-        '+': sum,
-        '-': sub,
-        '*': mul,
+        '+': np.add,
+        '-': np.subtract,
+        '*': np.multiply,
         '/': protected_division
     }
-
-
 
