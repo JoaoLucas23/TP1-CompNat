@@ -1,0 +1,24 @@
+{
+    "best_train_v_measure": 0.06062772863113716,
+    "best_test_v_measure": 0.07781690471181224,
+    "best_individual": "operators['+'](operators['+'](operators['-'](x8, x9), operators['/'](x1, x10)), operators['-'](x2, x4))",
+    "history": [
+        {
+            "generation": 0,
+            "best_fitness": 0.06062772863113716,
+            "min_fitness": 0.0033054652327393548,
+            "average_fitness": 0.0133093102326442
+        }
+    ],
+    "experiment_id": 15,
+    "repetition": 8,
+    "config": {
+        "population_size": 500,
+        "num_generations": 100,
+        "crossover_prob": 0.9,
+        "mutation_prob": 0.05,
+        "tournament_size": 2,
+        "experiment_id": 15,
+        "repetition": 8
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "best_train_v_measure": 0.030407783560034433,
+    "best_test_v_measure": 0.05224299942726933,
+    "best_individual": "operators['*'](operators['+'](x4, operators['+'](operators['*'](operators['-'](operators['*'](x3, x9), operators['-'](x7, x3)), operators['-'](x3, x7)), operators['+'](operators['+'](x10, operators['+'](x8, x0)), x5))), operators['*'](operators['*'](operators['*'](operators['-'](operators['/'](x7, x8), operators['*'](x6, x10)), x7), x8), operators['+'](operators['-'](operators['+'](operators['*'](x2, x8), operators['*'](x7, x9)), operators['-'](operators['-'](operators['+'](operators['/'](x0, x4), operators['+'](x5, x8)), x5), operators['-'](x10, x7))), operators['-'](x10, operators['+'](x3, x6)))))",
+    "history": [
+        {
+            "generation": 0,
+            "best_fitness": 0.030407783560034433,
+            "min_fitness": 0.006323762864733505,
+            "average_fitness": 0.01206462171589111
+        }
+    ],
+    "experiment_id": 4,
+    "repetition": 3,
+    "config": {
+        "population_size": 30,
+        "num_generations": 500,
+        "crossover_prob": 0.9,
+        "mutation_prob": 0.05,
+        "tournament_size": 2,
+        "experiment_id": 4,
+        "repetition": 3
+    }
+}
